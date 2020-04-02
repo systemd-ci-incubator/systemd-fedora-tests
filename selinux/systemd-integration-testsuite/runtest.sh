@@ -4,6 +4,9 @@
 
 set -o pipefail
 
+TEST="TESTNAME-TBD"
+PACKAGE="systemd"
+
 rlJournalStart
     rlPhaseStartSetup
         for package in systemd dnf rpm-build; do
@@ -29,6 +32,11 @@ rlJournalStart
         rlRun "sleep 1"
         rlRun "systemctl status hello.service"
         rlRun "journalctl -u hello.service"
+    rlPhaseEnd
+
+    rlPhaseStartCleanup
+        rlRun "popd"
+        rlRun "rm -fr $WORKDIR"
     rlPhaseEnd
 rlJournalPrintText
 rlJournalEnd
