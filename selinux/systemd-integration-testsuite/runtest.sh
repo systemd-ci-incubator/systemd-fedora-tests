@@ -6,7 +6,10 @@ set -o pipefail
 
 rlJournalStart
     rlPhaseStartSetup
-        rlAssertRpm systemd dnf rpm-build
+        for package in systemd dnf rpm-build; do
+            rlAssertRpm $package
+        done
+
         rlRun "selinuxenabled" 0 "SELinux must be enabled"
         rlRun "setenforce 0" 0 "We need to run SELinux in the permissive mode"
         # Prepare a temporary working directory outside of /tmp (tmpfs), as we're going
