@@ -1,0 +1,3 @@
+summary: Run certain parts of the upstream integration testsuite with enabled SELinux
+tags: [regression, selinux]
+test: ./test.sh
