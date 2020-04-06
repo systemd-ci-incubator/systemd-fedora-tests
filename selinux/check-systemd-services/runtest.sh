@@ -9,7 +9,7 @@ PACKAGE="systemd"
 
 rlJournalStart
     rlPhaseStartSetup
-        rlLogInfo "Make sure SELinux is enabled on the next boot in permissive mode"
+        rlLogInfo "Make sure SELinux is enabled and in permissive mode"
         rlRun "selinuxenabled" 0 "SELinux must be enabled"
         rlRun "setenforce 0" 0 "Switch SELinux to permissive mode"
         rlRun "getenforce | grep -i permissive" 0 "SELinux should be in the permissive mode"
