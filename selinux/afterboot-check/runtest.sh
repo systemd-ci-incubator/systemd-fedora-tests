@@ -38,8 +38,8 @@ elif [[ $REBOOTCOUNT -eq 1 ]]; then
     rlPhaseEnd
 
     rlPhaseStartTest "Check for PID 1 AVCs since boot"
-        rlRun -s "ausearch -m avc -ts boot -p 1"
-        rlRun "test ! -s $rlRun_LOG" 0 "The ausearch query should return no results"
+        # ausearch returns 1 when no records were found
+        rlRun -s "ausearch -m avc -ts boot -p 1" 1
     rlPhaseEnd
 
     rlPhaseStartCleanup
