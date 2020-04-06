@@ -1,0 +1,2 @@
+summary: Check for AVC denials in native systemd services
+tags: [regression, selinux]
