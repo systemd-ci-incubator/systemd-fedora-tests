@@ -22,9 +22,13 @@ rlJournalStart
 
     SERVICES=(
         systemd-homed
+        systemd-hostnamed
         systemd-journald
         systemd-logind
+        systemd-machined
         systemd-random-seed
+        systemd-sysctl
+        systemd-timesyncd
         systemd-userdbd
     )
 
