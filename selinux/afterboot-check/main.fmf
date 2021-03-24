@@ -1,4 +1,0 @@
-summary: Check for AVC denials after machine reboot
-tags: [regression, selinux]
-# Temporarily disable this test as TFT doesn't support test reboots (yet)
-disabled: 1
