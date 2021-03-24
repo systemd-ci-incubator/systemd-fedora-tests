@@ -11,5 +11,6 @@
         playbooks:
             - plans/fedora-test-deps.yml
     execute:
-        how: beakerlib
+        framework: beakerlib
+        how: tmt
 
