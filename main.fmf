@@ -1,4 +1,2 @@
 contact: Frantisek Sumsal <fsumsal@redhat.com>
 component: [systemd, selinux]
-# Support Beakerlib tests only (for now)
-test: ./runtest.sh
