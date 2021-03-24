@@ -9,6 +9,8 @@
       state: present
       name:
         - coreutils
+        - perl-IPC-SysV
+        - perl-Time-HiRes
         - rpm-build
         - systemd
         - systemd-container

@@ -1,11 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 
-set -eu
+set -eux
 set -o pipefail
 
-if ! rpm -q systemd-tests; then
-    echo >&2 "Package 'systemd-tests' is not installed"
-    exit 1
-fi
+TEMPDIR="$(mktemp -d)"
+pushd "$TEMPDIR"
 
-/usr/lib/systemd/tests/run-unit-tests.py -u
+trap "rm -fr '$TEMPDIR'" EXIT
+
+dnf download --source systemd
+rpmbuild --build-in-place --clean --recompile systemd*.src.rpm
