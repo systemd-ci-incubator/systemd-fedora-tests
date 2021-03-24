@@ -10,4 +10,5 @@ trap "rm -fr '$TEMPDIR'" EXIT
 
 dnf download --source systemd
 dnf -y builddep systemd*.src.rpm
+dnf -y install gnu-efi-devel
 rpmbuild --build-in-place --clean --recompile systemd*.src.rpm
