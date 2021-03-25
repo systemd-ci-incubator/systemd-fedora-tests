@@ -9,6 +9,7 @@
       state: present
       name:
         - coreutils
+        - dnf-plugins-core
         - perl-IPC-SysV
         - perl-Time-HiRes
         - rpm-build
