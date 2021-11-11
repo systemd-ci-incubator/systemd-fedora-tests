@@ -1,15 +1,17 @@
-# vi: sw=4 ts=4 et:
+# vi: sw=2 ts=2 et ft=yaml:
 
 /pull-request/fedora:
-    summary:
-        systemd Fedora testsuite
-    discover:
-        how: fmf
-    prepare:
-        how: ansible
-        playbooks:
-            - plans/fedora-test-deps.yml
-    execute:
-        framework: beakerlib
-        how: tmt
-
+  summary:
+    systemd Fedora testsuite
+  discover:
+    how: fmf
+  prepare:
+    how: ansible
+    playbooks:
+      - plans/fedora-test-deps.yml
+    exclude:
+      - systemd-standalone-tmpfiles
+      - systemd-standalone-sysusers
+  execute:
+    framework: beakerlib
+    how: tmt
