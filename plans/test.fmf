@@ -6,12 +6,16 @@
   discover:
     how: fmf
   prepare:
-    how: ansible
-    playbooks:
-      - plans/fedora-test-deps.yml
-    exclude:
-      - systemd-standalone-tmpfiles
-      - systemd-standalone-sysusers
+    - name: systemd
+      how: install
+      package: systemd
+      exclude:
+        - systemd-standalone-tmpfiles
+        - systemd-standalone-sysusers
+    - name: test dependencies
+      how: ansible
+      playbooks:
+        - plans/fedora-test-deps.yml
   execute:
     framework: beakerlib
     how: tmt
