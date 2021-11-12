@@ -8,7 +8,6 @@
   prepare:
     - name: systemd
       how: install
-      package: systemd
       exclude:
         - systemd-standalone-tmpfiles
         - systemd-standalone-sysusers
